@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import { Login } from "../components/Login";
+import { Login } from "../ui/Login";
 
 export const LoginPage = () => {
   return (

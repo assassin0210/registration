@@ -1,7 +1,7 @@
-import { Form } from "./Form";
+import { Form } from "./components/Form";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { setUser } from "../store/slices/userSlice";
+import { setUser } from "../core/store/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 
 export const SignUp = () => {

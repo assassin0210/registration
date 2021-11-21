@@ -13,16 +13,21 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 14px;
     color: #262626;
     font-family: 'Inter', sans-serif;
+    p{
+      font-size: 14px;
+    }
 
     h1 {
       font-size: 36px;
     }
-    h2,h3,h4 {
-       font-size: 24px;
-     }
+
+    h2, h3, h4 {
+      font-size: 24px;
+    }
 
     a {
       text-decoration: none;
+      color: white;
     }
 
   }

@@ -7,6 +7,10 @@ export const Logo = () => {
 };
 
 const LogoStyle = styled.h2`
-  font-family: "Lobster", cursive;
+  font-family: "Lobster", sans-serif;
+  font-weight: normal;
   cursor: pointer;
+  //border: 2px solid white;
+  //padding: 5px;
+  color: ${({ theme }) => theme.systemColors.white};
 `;

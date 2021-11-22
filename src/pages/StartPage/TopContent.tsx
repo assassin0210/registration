@@ -11,14 +11,14 @@ interface IPropType {
 export const TopContent = ({ images }: IPropType) => {
   const settings = {
     dots: true,
-    // infinite: true,
+    infinite: true,
     speed: 500,
     slickNex: () => <div>next</div>,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplay: true,
-    // autoplaySpeed: 6000,
-    // pauseOnHover: true,
+    autoplay: true,
+    autoplaySpeed: 6000,
+    pauseOnHover: true,
     customPaging(index: number): JSX.Element {
       return <div>{index}</div>;
     },
@@ -27,16 +27,24 @@ export const TopContent = ({ images }: IPropType) => {
     <>
       <SliderStyle ref={(c) => c?.slickNext()} {...settings}>
         {images.map((img) => (
-          <Image>
-            <img src={baseImgFull + img} alt="" />
-          </Image>
+          <img src={baseImgFull + img} alt="" />
         ))}
       </SliderStyle>
     </>
   );
 };
 const SliderStyle = styled(Slider)`
-  position: relative;
+  .slick-list {
+    height: 100vh;
+    flex: 1;
+    overflow: hidden;
+
+    img {
+      height: 100vh;
+      object-fit: cover;
+      overflow: hidden;
+    }
+  }
 
   .slick-dots {
     bottom: 20%;

@@ -1,18 +1,15 @@
 import styled from "styled-components";
 import { Logo } from "./components/Logo";
 import { Button } from "../styled/buttons";
-import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setLoginModal, setRegistrationModal } from "../core/store/slices/modalsSlice";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const Header = () => {
-  const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   return (
     <HeaderStyle>
       <Logo />
       <div>
-        <NavLink to="/">1</NavLink>
+        <NavLink to="">1</NavLink>
         <NavLink to="">2</NavLink>
         <NavLink to="">3</NavLink>
         <NavLink to="">4</NavLink>
@@ -21,10 +18,11 @@ export const Header = () => {
       </div>
 
       <ButtonWrapper>
-        <Button onClick={() => dispatch(setLoginModal(true))} type="primary">
+        <Button onClick={() => navigate("login")} type="primary">
           Login
         </Button>
-        <Button onClick={() => dispatch(setRegistrationModal(true))} type="gold">
+
+        <Button onClick={() => navigate("registration")} type="gold">
           Registration
         </Button>
       </ButtonWrapper>
@@ -40,7 +38,7 @@ const ButtonWrapper = styled.div`
 const HeaderStyle = styled.header`
   background: transparent;
   margin-top: 20px;
-  z-index: 1;
+  z-index: 10;
   top: 0;
   width: 100%;
   left: 0;

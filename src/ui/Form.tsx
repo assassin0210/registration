@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 
 interface IPropType {
   formType: "login" | "registration";
-  handleClick: (email: string, pass: string) => void;
 }
 
 export interface InputsSingUp {

@@ -15,8 +15,6 @@ export const loginThunk = createAsyncThunk(
 export const loginWithGoogle = createAsyncThunk("auth/google", async function () {
   const auth = getAuth();
   const provider = new firebase.auth.GoogleAuthProvider();
-
   const { user } = await signInWithPopup(auth, provider);
-
   return user;
 });

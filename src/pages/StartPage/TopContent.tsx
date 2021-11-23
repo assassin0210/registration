@@ -25,6 +25,8 @@ export const TopContent = ({ images }: IPropType) => {
   };
   return (
     <>
+      <BGonImg />
+
       <SliderStyle ref={(c) => c?.slickNext()} {...settings}>
         {images.map((img) => (
           <img src={baseImgFull + img} alt="" />
@@ -33,7 +35,17 @@ export const TopContent = ({ images }: IPropType) => {
     </>
   );
 };
+
+const BGonImg = styled.div`
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  background-color: rgba(49, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+`;
 const SliderStyle = styled(Slider)`
+  overflow: hidden;
   .slick-list {
     height: 100vh;
     flex: 1;
@@ -49,6 +61,7 @@ const SliderStyle = styled(Slider)`
   .slick-dots {
     bottom: 20%;
     color: white;
+    z-index: 10;
   }
 
   .slick-next {
@@ -56,14 +69,15 @@ const SliderStyle = styled(Slider)`
     display: flex;
     position: absolute;
     right: 50%;
+    z-index: 10;
   }
 
   .slick-prev {
     background: #000;
-    z-index: 1000;
     display: flex;
     position: absolute;
     left: 50%;
+    z-index: 10;
   }
 `;
 

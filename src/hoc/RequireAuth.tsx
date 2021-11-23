@@ -8,8 +8,9 @@ interface IPropType {
 
 export const RequireAuth = ({ children }: IPropType) => {
   const { auth } = useAuth();
+  console.log(auth);
   if (!auth) {
-    return <Navigate to="/start-page" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return children;

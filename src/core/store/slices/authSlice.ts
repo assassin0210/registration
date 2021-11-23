@@ -16,7 +16,7 @@ export interface IUserStoreType {
 
 const initialState: IUserStoreType = {
   email: null,
-  token: null,
+  token: localStorage.getItem("token"),
   id: null,
   isLoader: false,
   isError: false,

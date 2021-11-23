@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { initialStart } from "../../core/store/thunks/asynkInitial";
 import { RootState } from "../../core/store";
 import { TopContent } from "./TopContent";
-import { Modal } from "../../ui/components/Modal";
-import { Header } from "../../ui/Header";
 
 export const StartPage = () => {
   const dispatch = useDispatch();
@@ -26,10 +24,6 @@ export const StartPage = () => {
     <>
       {!isLoader && (
         <Container>
-          <Header />
-
-          <Modal modalType="login" />
-          <Modal modalType="registration" />
           <TopContent images={images} />
         </Container>
       )}

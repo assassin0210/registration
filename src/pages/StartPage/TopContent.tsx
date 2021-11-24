@@ -13,12 +13,12 @@ export const TopContent = ({ images }: IPropType) => {
     dots: true,
     infinite: true,
     speed: 500,
-    slickNex: () => <div>next</div>,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 2000,
     pauseOnHover: true,
+    fade: true,
     customPaging(index: number): JSX.Element {
       return <div>{index}</div>;
     },
@@ -46,6 +46,7 @@ const BGonImg = styled.div`
 `;
 const SliderStyle = styled(Slider)`
   overflow: hidden;
+
   .slick-list {
     height: 100vh;
     flex: 1;
@@ -68,28 +69,12 @@ const SliderStyle = styled(Slider)`
     background: #000;
     display: flex;
     position: absolute;
-    right: 50%;
+    left: 0;
+    top: 70%;
     z-index: 10;
   }
 
   .slick-prev {
-    background: #000;
-    display: flex;
-    position: absolute;
-    left: 50%;
-    z-index: 10;
-  }
-`;
-
-const Arrays = styled.div``;
-
-export const Image = styled.div`
-  flex: 1;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
+    display: none;
   }
 `;

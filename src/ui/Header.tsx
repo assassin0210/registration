@@ -2,9 +2,12 @@ import styled from "styled-components";
 import { Logo } from "./components/Logo";
 import { Button } from "../styled/buttons";
 import { NavLink, useNavigate } from "react-router-dom";
+import { setLoginModal, setRegistrationModal } from "../core/store/slices/modalsSlice";
+import { useDispatch } from "react-redux";
 
 export const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <HeaderStyle>
       <Logo />
@@ -18,11 +21,23 @@ export const Header = () => {
       </div>
 
       <ButtonWrapper>
-        <Button onClick={() => navigate("login")} type="primary">
+        <Button
+          onClick={() => {
+            navigate("login");
+            dispatch(setLoginModal(true));
+          }}
+          type="primary"
+        >
           Login
         </Button>
 
-        <Button onClick={() => navigate("registration")} type="gold">
+        <Button
+          onClick={() => {
+            navigate("registration");
+            dispatch(setRegistrationModal(true));
+          }}
+          type="gold"
+        >
           Registration
         </Button>
       </ButtonWrapper>

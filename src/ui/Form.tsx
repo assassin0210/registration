@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import styled from "styled-components";
 import { Button, GoogleButton } from "../styled/buttons";
 import { ErrorMessage } from "./common";
 import { loginThunk, loginWithGoogle } from "../core/store/thunks/authThunk";
 import { useDispatch } from "react-redux";
+import styled from "styled-components/macro";
 
 interface IPropType {
   formType: "login" | "registration";

@@ -6,7 +6,7 @@ import { useAuth } from "./hooks/use-auth";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import { Modal } from "./ui/components/Modal";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 function App() {
   const { auth } = useAuth();

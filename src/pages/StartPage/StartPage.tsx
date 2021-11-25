@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import React, { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { initialStart } from "../../core/store/thunks/asynkInitial";
 import { RootState } from "../../core/store";
-import { TopContent } from "./TopContent";
+import { MainSlider } from "./MainSlider";
 
 export const StartPage = () => {
   const dispatch = useDispatch();
@@ -19,12 +19,13 @@ export const StartPage = () => {
       }),
     [upcoming],
   );
+  console.log(images);
 
   return (
     <>
       {!isLoader && (
         <Container>
-          <TopContent images={images} />
+          <MainSlider images={images} />
         </Container>
       )}
     </>

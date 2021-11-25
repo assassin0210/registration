@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { Logo } from "./components/Logo";
 import { Button } from "../styled/buttons";
 import { NavLink, useNavigate } from "react-router-dom";

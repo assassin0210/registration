@@ -1,14 +1,22 @@
 import { baseImgFull } from "../../consts";
-import styled from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import styled from "styled-components/macro";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 interface IPropType {
   images: string[];
 }
-
-export const TopContent = ({ images }: IPropType) => {
+const Next = ({ className, style, onClick }: any) => {
+  return (
+    <ArrowNext onClick={onClick}>
+      <NextStyle />
+    </ArrowNext>
+  );
+};
+export const MainSlider = ({ images }: IPropType) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -18,7 +26,8 @@ export const TopContent = ({ images }: IPropType) => {
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
-    fade: true,
+    nextArrow: <Next />,
+
     customPaging(index: number): JSX.Element {
       return <div>{index}</div>;
     },
@@ -26,15 +35,31 @@ export const TopContent = ({ images }: IPropType) => {
   return (
     <>
       <BGonImg />
-
       <SliderStyle ref={(c) => c?.slickNext()} {...settings}>
         {images.map((img) => (
-          <img src={baseImgFull + img} alt="" />
+          <>
+            <Img src={baseImgFull + img} alt="" />
+            <div style={{ position: "absolute", top: "0", color: "white" }}>{img}</div>
+          </>
         ))}
       </SliderStyle>
     </>
   );
 };
+const ArrowNext = styled.div`
+  opacity: 0.5;
+  position: absolute;
+  left: 25%;
+  top: 70%;
+  z-index: 10;
+  color: white;
+  background: #000;
+  padding: 12px 5px;
+`;
+
+const NextStyle = styled(FontAwesomeIcon).attrs({ icon: faChevronRight })`
+  font-size: 50px;
+`;
 
 const BGonImg = styled.div`
   position: absolute;
@@ -44,33 +69,25 @@ const BGonImg = styled.div`
   width: 100%;
   height: 100%;
 `;
+
+const Img = styled.img`
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
+`;
+
 const SliderStyle = styled(Slider)`
   overflow: hidden;
-
   .slick-list {
     height: 100vh;
     flex: 1;
     overflow: hidden;
-
-    img {
-      height: 100vh;
-      object-fit: cover;
-      overflow: hidden;
-    }
   }
 
   .slick-dots {
     bottom: 20%;
     color: white;
-    z-index: 10;
-  }
-
-  .slick-next {
-    background: #000;
-    display: flex;
-    position: absolute;
-    left: 0;
-    top: 70%;
     z-index: 10;
   }
 
